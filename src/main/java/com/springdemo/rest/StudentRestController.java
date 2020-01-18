@@ -2,10 +2,11 @@ package com.springdemo.rest;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.annotation.PostConstruct;
 
-
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,5 +32,11 @@ public class StudentRestController {
 		
 		return students;
 		
+	}
+	
+	@GetMapping("/students/{studentId}")
+	public Student getStudentForId(@PathVariable int studentId) {
+		
+		return students.get(studentId);
 	}
 }
